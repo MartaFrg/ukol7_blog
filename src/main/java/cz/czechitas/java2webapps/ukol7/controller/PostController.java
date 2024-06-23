@@ -1,6 +1,10 @@
 package cz.czechitas.java2webapps.ukol7.controller;
 
 import cz.czechitas.java2webapps.ukol7.entity.Post;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +21,9 @@ public class PostController {
         this.service = service;
     }
     @GetMapping("/")
-    public ModelAndView index(){//(@PageableDefault(sort = {"prijmeni", "jmeno"}) Pageable pageable) {
-        List<Post> listOfPosts = service.seznamPostu();
+    public ModelAndView index(){//(@PageableDefault(Pageable pageable) {
+        PageRequest pageable = PageRequest.of(0, 20);
+        Page<Post> listOfPosts = service.seznamPostu(pageable);
         return new ModelAndView("index").addObject("ListOfPosts",listOfPosts );
     }
 

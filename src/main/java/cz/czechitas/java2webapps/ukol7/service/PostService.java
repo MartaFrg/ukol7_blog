@@ -2,6 +2,8 @@ package cz.czechitas.java2webapps.ukol7.service;
 
 import cz.czechitas.java2webapps.ukol7.entity.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import cz.czechitas.java2webapps.ukol7.repository.PostRepository;
 
@@ -19,8 +21,8 @@ public class PostService {
     /**
      * Vrací seznam všech postů v databázi.
      */
-    public List<Post> seznamPostu() {
-        return postRepository.findAll();
+    public Page<Post> seznamPostu(Pageable pageable) {
+        return postRepository.findAll(pageable);
     }
     /**
      * Vrací seznam jednoho postu podle slugu.
