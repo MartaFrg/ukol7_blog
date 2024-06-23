@@ -9,5 +9,5 @@ CREATE TABLE post
     published DATE
 );
 
-CREATE
-    INDEX ON post(published);
+CREATE INDEX ON post(published);
+

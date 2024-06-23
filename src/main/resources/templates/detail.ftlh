@@ -1,3 +1,4 @@
+[#ftl]
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -7,6 +8,11 @@
     <link rel="icon" type="image/png" href="/images/favicon.png">
 </head>
 <body>
-    <h1>Tady bude můj blog…</h1>
+<h1>${singlePost.title}</h1>
+<strong>${singlePost.perex?no_esc}</strong>
+    <div>
+        <p>${singlePost.body?no_esc}</p>
+    </div>
 </body>
 </html>
+
