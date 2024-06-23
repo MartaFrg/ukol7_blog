@@ -1,6 +1,6 @@
 #FileLock
-#Sun Jun 23 18:20:48 CEST 2024
+#Sun Jun 23 23:47:35 CEST 2024
 hostName=DELL_9020_1
-id=19045e66ef8c07da87eab6b1ec48f6a73396b834430
+id=19047119da53093934e192d3f27a1be393678befd95
 method=file
-server=10.0.0.36\:63035
+server=10.0.0.36\:49553

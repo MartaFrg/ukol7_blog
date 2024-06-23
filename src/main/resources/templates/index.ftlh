@@ -36,7 +36,7 @@
     <div class="pager">
         [@pagerLink page=0 active=false text="⇤" /]
         [@pagerLink page=ListOfPosts.number - 1 active=ListOfPosts.first text="←" /]
-        [#list (0..!ListOfPosts.totalPages) as pageNumber]
+        [#list (0..ListOfPosts.totalPages) as pageNumber]
             [@pagerLink page=pageNumber active=pageNumber==ListOfPosts.number text=pageNumber + 1 /]
         [/#list]
         [@pagerLink page=ListOfPosts.number + 1 active=ListOfPosts.last text="→" /]
@@ -44,3 +44,10 @@
     </div>
 </body>
 </html>
+[#macro pagerLink page text active]
+    [#if active]
+        <span class="page active">${text}</span>
+    [#else ]
+        <a href="${createURL({"page": page})}" class="page">${text}</a>
+    [/#if]
+[/#macro]
