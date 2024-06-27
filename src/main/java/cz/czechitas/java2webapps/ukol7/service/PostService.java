@@ -23,7 +23,8 @@ public class PostService {
      * Vrací seznam všech postů v databázi.
      */
     public Page<Post> seznamPostu(Pageable pageable) {
-        return postRepository.findByPublishedBeforeOrderByPublishedDesc(LocalDate.now(), pageable);
+        LocalDate now = LocalDate.now();
+        return postRepository.findByPublishedBeforeOrderByPublishedDesc(now, pageable);
     }
     /**
      * Vrací seznam jednoho postu podle slugu.

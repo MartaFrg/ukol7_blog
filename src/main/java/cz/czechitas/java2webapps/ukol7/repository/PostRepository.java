@@ -15,8 +15,8 @@ public interface PostRepository extends JpaRepository<Post, Long > {
 
     //Page<Post> findAllByOrderByPublishedDateDesc(Pageable pageable);
     //Page<Post> findAllByOrderByPublished(Pageable pageable);
-    Page<Post> findByPublishedBeforeOrderByPublishedDesc(LocalDate now, Pageable pageable);
-    //Page<Post> findByOrderByPublishedDesc(Pageable pageable);
+    //Page<Post> findByPublishedBeforeOrderByPublishedDateDesc(LocalDate now, Pageable pageable);
+    Page<Post> findByPublishedBeforeOrderByPublishedDesc(LocalDate now,Pageable pageable);
 
 
 }

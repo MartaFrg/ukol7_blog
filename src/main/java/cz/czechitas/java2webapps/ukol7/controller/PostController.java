@@ -22,7 +22,7 @@ public class PostController {
         this.service = service;
     }
     @GetMapping("/")
-    public ModelAndView index(@RequestParam(required=false)int page){
+    public ModelAndView index(@RequestParam(required=false,defaultValue = "0")int page){
         PageRequest pageable = PageRequest.of(page, 20);
         Page<Post> listOfPosts = service.seznamPostu(pageable);
         return new ModelAndView("index").addObject("ListOfPosts",listOfPosts );
