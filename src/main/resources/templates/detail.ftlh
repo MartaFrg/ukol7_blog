@@ -12,6 +12,7 @@
 <strong>${singlePost.perex?no_esc}</strong>
     <div>
         <p>${singlePost.body?no_esc}</p>
+        <a href="/">ZPĚT</a>
     </div>
 </body>
 </html>

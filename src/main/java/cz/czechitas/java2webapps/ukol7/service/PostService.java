@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import cz.czechitas.java2webapps.ukol7.repository.PostRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class PostService {
      * Vrací seznam všech postů v databázi.
      */
     public Page<Post> seznamPostu(Pageable pageable) {
-        return postRepository.findAll(pageable);
+        return postRepository.findByPublishedBeforeOrderByPublishedDesc(LocalDate.now(), pageable);
     }
     /**
      * Vrací seznam jednoho postu podle slugu.

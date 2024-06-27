@@ -24,7 +24,7 @@
 
                 [#items as post]
                 <tr>
-                    <td><a href="/${post.slug}">${post.title}</a></td>
+                    <td><a href="/post/${post.slug}">${post.title}</a></td>
                     <td>${post.perex?no_esc}</td>
                     <td>${post.author}</td>
                     <td>${post.published?date?string}</td>
@@ -42,6 +42,7 @@
         [@pagerLink page=ListOfPosts.number + 1 active=ListOfPosts.last text="→" /]
         [@pagerLink page=ListOfPosts.totalPages - 1 active=false text="⇥" /]
     </div>
+
 </body>
 </html>
 [#macro pagerLink page text active]
