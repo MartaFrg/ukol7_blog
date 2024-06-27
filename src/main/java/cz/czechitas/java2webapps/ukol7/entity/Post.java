@@ -2,6 +2,7 @@ package cz.czechitas.java2webapps.ukol7.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -26,7 +27,7 @@ public class Post {
     private String title;
     private String perex;
     private String body;
-    private Date published;
+    private LocalDate published;
 
     public Integer getId() {
         return id;
@@ -76,11 +77,11 @@ public class Post {
         this.body = body;
     }
 
-    public Date getPublished() {
+    public LocalDate getPublished() {
         return published;
     }
 
-    public void setPublished(Date published) {
+    public void setPublished(LocalDate published) {
         this.published = published;
     }
 }
