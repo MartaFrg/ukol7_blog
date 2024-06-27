@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import cz.czechitas.java2webapps.ukol7.repository.PostRepository;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
