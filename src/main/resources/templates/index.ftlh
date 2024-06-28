@@ -21,22 +21,21 @@
             </tr>
             </thead>
             <tbody>
-
-                [#items as post]
-                <tr>
-                    <td><a href="/post/${post.slug}">${post.title}</a></td>
-                    <td>${post.perex?no_esc}</td>
-                    <td>${post.author}</td>
-                    <td>${post.published?date?string}</td>
-                </tr>
-                [/#items]
+                            [#items as post]
+                            <tr>
+                                <td><a href="/post/${post.slug}">${post.title}</a></td>
+                                <td>${post.perex?no_esc}</td>
+                                <td>${post.author}</td>
+                                <td>${post.published?date?string}</td>
+                            </tr>
+                            [/#items]
             [/#list]
             </tbody>
         </table>
     <div class="pager">
         [@pagerLink page=0 active=false text="⇤" /]
         [@pagerLink page=ListOfPosts.number - 1 active=ListOfPosts.first text="←" /]
-        [#list (0..ListOfPosts.totalPages) as pageNumber]
+        [#list (0..ListOfPosts.totalPages-1) as pageNumber]
             [@pagerLink page=pageNumber active=pageNumber==ListOfPosts.number text=pageNumber + 1 /]
         [/#list]
         [@pagerLink page=ListOfPosts.number + 1 active=ListOfPosts.last text="→" /]
@@ -46,9 +45,11 @@
 </body>
 </html>
 [#macro pagerLink page text active]
+
     [#if active]
         <span class="page active">${text}</span>
     [#else ]
         <a href="${createURL({"page": page})}" class="page">${text}</a>
     [/#if]
 [/#macro]
+
