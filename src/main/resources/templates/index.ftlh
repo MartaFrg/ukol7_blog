@@ -1,4 +1,5 @@
 [#ftl]
+[#import "/spring.ftl" as spring]
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -6,6 +7,7 @@
     <title>Můj blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/static.css/style.css" />
 </head>
 <body>
     <h1>Toto je můj blog…</h1>
@@ -41,6 +43,31 @@
         [@pagerLink page=ListOfPosts.number + 1 active=ListOfPosts.last text="→" /]
         [@pagerLink page=ListOfPosts.totalPages - 1 active=false text="⇥" /]
     </div>
+
+    <h3>Přidání nového příspěvku.</h3>
+    <form action="/" method="post">
+        <div class="radek">Autor:</div>
+        [@spring.formInput path="post.author" /]
+
+        <div class="radek">Název článku:</div>
+        [@spring.formInput path="post.title" /]
+
+        <div class="radek">Perex:</div>
+        [@spring.formInput path="post.perex" /]
+
+        <div class="radek">Obsah:</div>
+        <textarea @spring.formInput path="post.body"></textarea>
+
+        <div class="radek">Datum publikování:</div>
+        [@spring.formInput fieldType ="date" path="post.published" /]
+
+        <div class="radek controls">
+            <button type="submit">Vložit článek</button>
+        </div>
+        <div class="radek">
+            <a href="/">reset formuláře</a>
+        </div>
+    </form>
 
 </body>
 </html>
