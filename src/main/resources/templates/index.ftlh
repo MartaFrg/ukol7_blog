@@ -7,7 +7,7 @@
     <title>Můj blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    <link rel="stylesheet" href="/static.css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
     <h1>Toto je můj blog…</h1>
@@ -56,7 +56,7 @@
         [@spring.formInput path="post.perex" /]
 
         <div class="radek">Obsah:</div>
-        <textarea @spring.formInput path="post.body"></textarea>
+        <textarea [@spring.formInput fieldType ="text" path="post.body"][/@spring.formInput]</textarea>
 
         <div class="radek">Datum publikování:</div>
         [@spring.formInput fieldType ="date" path="post.published" /]

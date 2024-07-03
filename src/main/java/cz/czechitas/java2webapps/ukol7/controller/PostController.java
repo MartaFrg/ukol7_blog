@@ -38,7 +38,9 @@ public class PostController {
         //if (bindingResult.hasErrors()) {
         //  return "/";
         //}
-        return "/index";//OPRAVIT, UPRAVIT
+        post.setSlug(post.getTitle());
+        service.savePost(post);
+        return "redirect:/";//OPRAVIT, UPRAVIT
     }
 
     @GetMapping("/post/{slug}")

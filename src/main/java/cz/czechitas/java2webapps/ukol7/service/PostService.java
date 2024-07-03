@@ -33,4 +33,11 @@ public class PostService {
     public Post singlePost(String slug) {
         return postRepository.findBySlug(slug);
     }
+    /**
+     * Ukládá do databáze.
+     */
+    public Post savePost(Post post) {
+        return postRepository.save(post);
+    }
+
 }
