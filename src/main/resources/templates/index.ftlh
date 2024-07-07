@@ -56,7 +56,7 @@
         [@spring.formInput path="post.perex" /]
 
         <div class="radek">Obsah:</div>
-        <textarea [@spring.formInput fieldType ="text" path="post.body"][/@spring.formInput]</textarea>
+        [@spring.formTextarea path="post.body" /]
 
         <div class="radek">Datum publikování:</div>
         [@spring.formInput fieldType ="date" path="post.published" /]
